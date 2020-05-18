@@ -137,8 +137,8 @@ pre_install_docker_compose(){
 
     # Set caddy cloudflare ddns email
     echo "(可以不管)cloudflare email for tls (optional)"
-    read -p "(Default hulisang@test.com):" cloudflare_email
-    [ -z "${cloudflare_email}" ]  && cloudflare_email="hulisang@test.com"
+    read -p "(Default teddy113223@gmail.com):" cloudflare_email
+    [ -z "${cloudflare_email}" ]  && cloudflare_email="teddy113223@gmail.com"
     echo
     echo "---------------------------"
     echo "cloudflare_email = ${cloudflare_email}"
@@ -147,8 +147,8 @@ pre_install_docker_compose(){
 
     # Set caddy cloudflare ddns key
     echo "（可以不管）cloudflare key for tls (optional)"
-    read -p "(Default bbbbbbbbbbbbbbbbbb ):" cloudflare_key
-    [ -z "${cloudflare_key}" ] && cloudflare_key="bbbbbbbbbbbbbbbbbb"
+    read -p "(Default aea5f1db554e067b094bbaceb1253a9f ):" cloudflare_key
+    [ -z "${cloudflare_key}" ] && cloudflare_key="aea5f1db554e067b094bbaceb1253a9f"
     echo
     echo "---------------------------"
     echo "cloudflare_key = ${cloudflare_key}"
@@ -157,8 +157,8 @@ pre_install_docker_compose(){
     echo
 
     echo "请选择对接方式 0 for webapi 1 for mysql"
-    read -p "(v2ray_usemysql (Default 0):" v2ray_usemysql
-    [ -z "${v2ray_usemysql}" ] && v2ray_usemysql=0
+    read -p "(v2ray_usemysql (Default 1):" v2ray_usemysql
+    [ -z "${v2ray_usemysql}" ] && v2ray_usemysql=1
     echo
     echo "---------------------------"
     echo "v2ray_usemysql = ${v2ray_usemysql}"
@@ -232,7 +232,7 @@ pre_install_docker_compose(){
    # Set Setting if the node go downwith panel
     echo "sspanel的数据库ip"
     read -p "(v2ray_mysqlhost :" v2ray_mysqlhost
-    [ -z "${v2ray_mysqlhost}" ] && v2ray_mysqlhost=""
+    [ -z "${v2ray_mysqlhost}" ] && v2ray_mysqlhost=67.216.211.112
     echo
     echo "---------------------------"
     echo "v2ray_mysqlhost = ${v2ray_mysqlhost}"
@@ -248,9 +248,18 @@ pre_install_docker_compose(){
     echo "---------------------------"
     echo
     # Set Setting if the node go downwith panel
+    echo "数据库名字"
+    read -p "(v2ray_mysqldbname (Default shidongli):" v2ray_mysqldbname
+    [ -z "${v2ray_mysqldbname}" ] && v2ray_mysqldbname=shidongli
+    echo
+    echo "---------------------------"
+    echo "v2ray_mysqldbname = ${v2ray_mysqldbname}"
+    echo "---------------------------"
+    echo
+    # Set Setting if the node go downwith panel
     echo "sspanel数据库用户名user"
-    read -p "(v2ray_myqluser (Default sspanel):" v2ray_myqluser
-    [ -z "${v2ray_myqluser}" ] && v2ray_myqluser="sspanel"
+    read -p "(v2ray_myqluser (Default shidongli):" v2ray_myqluser
+    [ -z "${v2ray_myqluser}" ] && v2ray_myqluser=shidongli
     echo
     echo "---------------------------"
     echo "sspanel数据库用户名user = ${v2ray_myqluser}"
@@ -258,20 +267,11 @@ pre_install_docker_compose(){
     echo
     # Set Setting if the node go downwith panel
     echo "sspanel数据库密码"
-    read -p "(v2ray_mysqlpassword (Default password):" v2ray_mysqlpassword
-    [ -z "${v2ray_mysqlpassword}" ] && v2ray_mysqlpassword=password
+    read -p "(v2ray_mysqlpassword (Default JRZwYb4KRkJF3JXZ):" v2ray_mysqlpassword
+    [ -z "${v2ray_mysqlpassword}" ] && v2ray_mysqlpassword=JRZwYb4KRkJF3JXZ
     echo
     echo "---------------------------"
     echo "v2ray_mysqlpassword = ${v2ray_mysqlpassword}"
-    echo "---------------------------"
-    echo
-    # Set Setting if the node go downwith panel
-    echo "数据库名字"
-    read -p "(v2ray_mysqldbname (Default sspanel):" v2ray_mysqldbname
-    [ -z "${v2ray_mysqldbname}" ] && v2ray_mysqldbname=sspanel
-    echo
-    echo "---------------------------"
-    echo "v2ray_mysqldbname = ${v2ray_mysqldbname}"
     echo "---------------------------"
     echo
     fi
@@ -335,7 +335,7 @@ pre_install_caddy(){
     # Set caddy v2ray tls email
     echo "caddy v2ray tls email"
     read -p "(No default ):" v2ray_email
-    [ -z "${v2ray_email}" ]
+    [ -z "${v2ray_email}" ]  && v2ray_email=teddy113223@gmail.com
     echo
     echo "---------------------------"
     echo "v2ray_email = ${v2ray_email}"
